@@ -1,0 +1,18 @@
+###----------------Mediawiki files-----------------
+
+#This is a Mediawiki Image
+FROM ubuntu
+MAINTAINER saurabhsonje@gmail.com
+RUN apt-get update
+RUN apt-get install -y wget
+RUN apt-get install -y nginx    
+RUN apt-get update
+RUN apt-get install -y  php7.0-mysql php7.0-curl php7.0-json php7.0-cgi  php7.0 libapache2-mod-php7.0
+RUN wget https://releases.wikimedia.org/mediawiki/1.36/mediawiki-1.36.2.tar.gz
+RUN tar -xvzf mediawiki-*.tar.gz
+CMD mv mediawiki-*/* /var/www/html/mediawiki
+CMD chown -R www-data:www-data /var/www/html/mediawiki
+CMD ["echo","Image created"]
+
+
+

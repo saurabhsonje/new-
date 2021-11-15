@@ -1,0 +1,25 @@
+****Docker commands** 
+
+
+##creation of Mediawiki image using dockerfile
+docker build -t mediawiki . 
+
+##creation of mediawikiconainer using docker image
+docker run -dit -p 80:3306 874431e84c0f /bin/bash 
+
+##creation of Mariadb image
+docker build -t mariadb . 
+
+
+##creation of mariadbcontianer using docker image
+
+docker run -dit -p 8080:3306 874431e84c0f /bin/bash 
+
+## creation new network bring both container under same network for communication perspective 
+
+docker network create Mediaappplication
+
+docker run --rm --net Mediaapp --name mediawikicontainer1  -d mediawiki
+
+docker run --rm --net Mediaapp --name mariadbcontainer1  -d mariadb  
+

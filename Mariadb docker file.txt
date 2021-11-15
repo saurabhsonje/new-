@@ -1,0 +1,14 @@
+##----------------Mariadb files-----------------
+
+#This is a Mariadb Image
+FROM mysql
+MAINTAINER saurabhsonje@gmail.com
+RUN apt-get update
+RUN apt-get install -y mariadb-server-core-10.3 mariadb-server-10.3 mariadb-plugin-tokudb
+ENV MYSQL_ROOT_PASSWORD mysql -u root -p
+ENV MYSQL_DATABASE mediawikidb
+ENV MYSQL_USER test
+ENV MYSQL_PASSWORD test123
+CMD ["mysqld"]
+
+
